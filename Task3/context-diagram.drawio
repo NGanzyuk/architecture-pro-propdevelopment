@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="eUuIRG2YQKFtmkDR4dqW" name="Контекстная диаграмма">
+    <mxGraphModel dx="1231" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="750" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ctx-title" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;" value="C4 Context — интеграция сервисов «Умный дом»" vertex="1">
+          <mxGeometry height="40" width="620" x="290" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-prop-boundary" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeWidth=2;strokeColor=#1168BD;fillColor=none;verticalAlign=top;align=left;spacingTop=8;spacingLeft=12;fontStyle=1;fontColor=#1168BD;" value="&amp;nbsp; Контур PropDevelopment" vertex="1">
+          <mxGeometry height="250" width="330" x="100" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-partner-boundary" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeWidth=2;strokeColor=#666666;fillColor=none;verticalAlign=top;align=left;spacingTop=8;spacingLeft=12;fontStyle=1;fontColor=#555555;" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;Контур партнёра" vertex="1">
+          <mxGeometry height="370" width="330" x="710" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-prop-system" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#1168BD;strokeColor=#0B4884;fontColor=#ffffff;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:16px&quot;&gt;&lt;b&gt;PropDevelopment&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[Software System]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Предоставляет собственникам сервисы умного дома и управляет правами доступа.&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="260" x="140" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-partner-system" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#777777;strokeColor=#4D4D4D;fontColor=#ffffff;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:16px&quot;&gt;&lt;b&gt;Платформа умного дома партнёра&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[External Software System]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Выполняет распознавание и управляет оборудованием умного дома.&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="270" x="745" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-device-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#999999;strokeColor=#666666;fontColor=#ffffff;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:15px&quot;&gt;&lt;b&gt;Домофон / шлагбаум&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[External Device Group]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Передаёт данные распознавания и выполняет команды управления.&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="240" x="760" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="VHBUnUl9wJaU5GBSwKhD-1" edge="1" parent="1" source="ctx-owner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;" target="ctx-device-group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VHBUnUl9wJaU5GBSwKhD-2" connectable="0" parent="VHBUnUl9wJaU5GBSwKhD-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Проходит идентификацию для получения доступа" vertex="1">
+          <mxGeometry relative="1" x="-0.0968" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-owner" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;strokeWidth=2;" value="Собственник / жилец" vertex="1">
+          <mxGeometry height="80" width="50" x="245" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-guest" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;strokeWidth=2;" value="Гость" vertex="1">
+          <mxGeometry height="80" width="50" x="850" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-owner-to-prop" edge="1" parent="1" source="ctx-owner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="ctx-prop-system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-owner-to-prop-label" connectable="0" parent="ctx-owner-to-prop" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" value="Управляет доступом через&lt;div&gt;мобильное приложение&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" y="-1" as="geometry">
+            <mxPoint x="-1" y="41" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-guest-to-devices" edge="1" parent="1" source="ctx-guest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;exitX=0.5;exitY=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="ctx-device-group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-guest-to-devices-label" connectable="0" parent="ctx-guest-to-devices" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" value="Запрашивает доступ&lt;div&gt;или выполняет вызов&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" y="-1" as="geometry">
+            <mxPoint x="-1" y="21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-prop-to-partner" edge="1" parent="1" source="ctx-prop-system" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;exitX=1;exitY=0.35;entryX=0;entryY=0.35;" target="ctx-partner-system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-prop-to-partner-label" connectable="0" parent="ctx-prop-to-partner" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" value="Передаёт правила доступа и команды управления&lt;div&gt;[HTTPS API]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" y="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-partner-to-prop" edge="1" parent="1" source="ctx-partner-system" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;exitX=0;exitY=0.7;entryX=1;entryY=0.7;" target="ctx-prop-system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-partner-to-prop-label" connectable="0" parent="ctx-partner-to-prop" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" value="Передаёт результаты распознавания,&lt;div&gt;вызовы и события [Webhooks / WebSocket]&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" y="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-partner-to-devices" edge="1" parent="1" source="ctx-partner-system" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="ctx-device-group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-partner-to-devices-label" connectable="0" parent="ctx-partner-to-devices" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" value="Передаёт данные распознавания&lt;div&gt;и команды управления&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
