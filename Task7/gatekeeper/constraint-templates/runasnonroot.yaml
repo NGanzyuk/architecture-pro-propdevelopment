@@ -1,0 +1,54 @@
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequirecontainersecurity
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequireContainerSecurity
+      validation:
+        openAPIV3Schema:
+          type: object
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      code:
+        - engine: Rego
+          source:
+            version: "v1"
+            rego: |
+              package k8srequirecontainersecurity
+
+              all_containers(pod) := array.concat(
+                array.concat(
+                  object.get(pod.spec, "containers", []),
+                  object.get(pod.spec, "initContainers", [])
+                ),
+                object.get(pod.spec, "ephemeralContainers", [])
+              )
+
+              runs_as_non_root(pod, container) if {
+                security_context := object.get(container, "securityContext", {})
+                object.get(security_context, "runAsNonRoot", null) == true
+              }
+
+              runs_as_non_root(pod, container) if {
+                security_context := object.get(container, "securityContext", {})
+                object.get(security_context, "runAsNonRoot", null) == null
+                pod_security_context := object.get(pod.spec, "securityContext", {})
+                object.get(pod_security_context, "runAsNonRoot", false) == true
+              }
+
+              violation contains {"msg": msg} if {
+                pod := input.review.object
+                container := all_containers(pod)[_]
+                not runs_as_non_root(pod, container)
+                msg := sprintf("container %q must set runAsNonRoot=true", [container.name])
+              }
+
+              violation contains {"msg": msg} if {
+                container := all_containers(input.review.object)[_]
+                security_context := object.get(container, "securityContext", {})
+                object.get(security_context, "readOnlyRootFilesystem", false) != true
+                msg := sprintf("container %q must set readOnlyRootFilesystem=true", [container.name])
+              }

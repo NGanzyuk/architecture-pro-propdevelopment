@@ -1,0 +1,16 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequireContainerSecurity
+metadata:
+  name: require-container-security
+spec:
+  enforcementAction: deny
+  match:
+    scope: Namespaced
+    excludedNamespaces:
+      - kube-system
+      - kube-public
+      - kube-node-lease
+      - gatekeeper-system
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
